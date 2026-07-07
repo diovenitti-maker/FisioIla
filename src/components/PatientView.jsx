@@ -473,12 +473,6 @@ function DiaryTab({ user }) {
       )}
     </div>
   )
-
-  function painColor(v) {
-    if (v <= 3) return C.ok
-    if (v <= 6) return C.accent3
-    return C.err
-  }
 }
 
 // ── APPOINTMENTS TAB ──────────────────────────────────────────────────────────
