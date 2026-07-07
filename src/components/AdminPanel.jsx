@@ -1,3 +1,4 @@
+import logoUrl from '../assets/logo.png'
 import { useState, useEffect } from 'react'
 import {
   getPatientsFS, addPatientFS, updatePatientFS, deletePatientFS,
@@ -731,7 +732,7 @@ export default function AdminPanel({ onLogout }) {
       <header style={{ background: C.s1, borderBottom: `1px solid ${C.border}`, padding: '0 20px', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '60px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <img src="/logo.png" alt="Logo" style={{ height: '36px', filter: 'brightness(0) invert(1) opacity(0.85)' }} />
+            <img src={logoUrl} alt="Logo" style={{ height: '36px', filter: 'brightness(0) invert(1) opacity(0.85)' }} />
             <p style={{ color: C.accent, fontSize: '11px', margin: 0, fontWeight: '700', letterSpacing: '1px' }}>PANNELLO ADMIN</p>
           </div>
           <button onClick={onLogout}

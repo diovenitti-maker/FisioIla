@@ -1,3 +1,4 @@
+import logoUrl from '../assets/logo.png'
 import { useState } from 'react'
 import { ADMIN_PASSWORD } from '../App'
 import { db } from '../firebase'
@@ -54,7 +55,7 @@ export default function Login({ onLogin }) {
 
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <img src="/logo.png" alt="Ilaria Melaranci Fisioterapia"
+          <img src={logoUrl} alt="Ilaria Melaranci Fisioterapia"
             style={{ width: '200px', marginBottom: '4px', filter: 'brightness(0) invert(1) opacity(0.85)' }} />
         </div>
 
