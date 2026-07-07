@@ -56,7 +56,7 @@ export default function Login({ onLogin }) {
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <img src={logoUrl} alt="Ilaria Melaranci Fisioterapia"
-            style={{ width: '200px', marginBottom: '4px', filter: 'brightness(0) invert(1) opacity(0.85)' }} />
+            style={{ width: '200px', marginBottom: '4px', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }} />
         </div>
 
         {/* Card */}
