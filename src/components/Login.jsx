@@ -54,9 +54,8 @@ export default function Login({ onLogin }) {
 
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <div style={{ fontSize: '56px', marginBottom: '10px' }}>🩺</div>
-          <h1 style={{ color: C.text, fontSize: '26px', fontWeight: '700', margin: 0 }}>Fisioterapia Ilaria</h1>
-          <p style={{ color: C.muted, margin: '6px 0 0', fontSize: '15px' }}>Riabilitazione & Benessere</p>
+          <img src="/logo.png" alt="Ilaria Melaranci Fisioterapia"
+            style={{ width: '200px', marginBottom: '4px', filter: 'brightness(0) invert(1) opacity(0.85)' }} />
         </div>
 
         {/* Card */}

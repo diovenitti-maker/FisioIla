@@ -731,11 +731,8 @@ export default function AdminPanel({ onLogout }) {
       <header style={{ background: C.s1, borderBottom: `1px solid ${C.border}`, padding: '0 20px', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '60px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontSize: '24px' }}>🩺</span>
-            <div>
-              <h1 style={{ color: C.text, fontSize: '17px', fontWeight: '700', margin: 0 }}>Fisioterapia Ilaria</h1>
-              <p style={{ color: C.accent, fontSize: '11px', margin: 0, fontWeight: '600' }}>PANNELLO ADMIN</p>
-            </div>
+            <img src="/logo.png" alt="Logo" style={{ height: '36px', filter: 'brightness(0) invert(1) opacity(0.85)' }} />
+            <p style={{ color: C.accent, fontSize: '11px', margin: 0, fontWeight: '700', letterSpacing: '1px' }}>PANNELLO ADMIN</p>
           </div>
           <button onClick={onLogout}
             style={{ background: 'rgba(239,68,68,0.1)', border: `1px solid ${C.err}44`, color: C.err, padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px', fontWeight: '500' }}>

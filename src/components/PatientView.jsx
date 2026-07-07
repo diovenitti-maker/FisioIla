@@ -567,7 +567,7 @@ export default function PatientView({ user, onLogout }) {
       <header style={{ background: C.s1, borderBottom: `1px solid ${C.border}`, padding: '0 20px', position: 'sticky', top: 0, zIndex: 100 }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '60px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '22px' }}>🩺</span>
+            <img src="/logo.png" alt="Logo" style={{ height: '32px', filter: 'brightness(0) invert(1) opacity(0.85)' }} />
             <div>
               <p style={{ color: C.text, fontWeight: '700', fontSize: '15px', margin: 0 }}>{user.name} {user.surname || ''}</p>
               <p style={{ color: C.muted, fontSize: '11px', margin: 0 }}>Codice: <span style={{ color: C.accent, fontFamily: 'monospace', fontWeight: '700' }}>{user.code}</span></p>
