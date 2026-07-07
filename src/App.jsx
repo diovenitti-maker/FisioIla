@@ -6,7 +6,7 @@ import PatientView from './components/PatientView'
 // ============================================================
 // 🔐 PASSWORD ADMIN — Cambia qui la password di Ilaria
 // ============================================================
-export const ADMIN_PASSWORD = 'IlariaFisio2024'
+export const ADMIN_PASSWORD = 'Ilaria2026'
 
 export default function App() {
   const [user, setUser] = useState(null)
