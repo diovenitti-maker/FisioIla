@@ -14,6 +14,7 @@ const C = {
 export default function Login({ onLogin }) {
   const [tab, setTab] = useState('patient')
   const [showPrivacy, setShowPrivacy] = useState(false)
+  const [privacyAccepted, setPrivacyAccepted] = useState(false)
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -91,11 +92,25 @@ export default function Login({ onLogin }) {
                   placeholder="ES: ABC123" style={inp} maxLength={10}
                   autoComplete="off" autoCapitalize="characters"
                 />
-                <button onClick={loginAsPatient} disabled={loading}
-                  style={{ width: '100%', padding: '14px', background: loading ? '#333' : C.accent,
-                    border: 'none', borderRadius: '10px', color: '#000', fontWeight: '700',
-                    fontSize: '15px', cursor: loading ? 'not-allowed' : 'pointer', transition: 'opacity 0.2s' }}>
-                  {loading ? '⏳ Verifica codice...' : 'Accedi al mio percorso →'}
+                {/* Privacy checkbox */}
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '14px', padding: '12px', background: C.s3, borderRadius: '10px', border: `1px solid ${privacyAccepted ? C.accent + '44' : C.border}` }}>
+                  <input type="checkbox" id="privacy" checked={privacyAccepted} onChange={e => setPrivacyAccepted(e.target.checked)}
+                    style={{ width: '18px', height: '18px', marginTop: '2px', accentColor: C.accent, cursor: 'pointer', flexShrink: 0 }} />
+                  <label htmlFor="privacy" style={{ color: C.muted, fontSize: '13px', lineHeight: '1.5', cursor: 'pointer' }}>
+                    Ho letto e accetto l'
+                    <button onClick={(e) => { e.preventDefault(); setShowPrivacy(true) }}
+                      style={{ background: 'none', border: 'none', color: C.accent, cursor: 'pointer', fontSize: '13px', fontWeight: '600', padding: 0, textDecoration: 'underline' }}>
+                      Informativa Privacy (GDPR)
+                    </button>
+                    {' '}e acconsento al trattamento dei miei dati personali per finalità riabilitative.
+                  </label>
+                </div>
+
+                <button onClick={loginAsPatient} disabled={loading || !privacyAccepted}
+                  style={{ width: '100%', padding: '14px', background: loading || !privacyAccepted ? '#2a2a3a' : C.accent,
+                    border: 'none', borderRadius: '10px', color: loading || !privacyAccepted ? C.muted : '#000', fontWeight: '700',
+                    fontSize: '15px', cursor: loading || !privacyAccepted ? 'not-allowed' : 'pointer', transition: 'all 0.2s' }}>
+                  {loading ? '⏳ Verifica codice...' : !privacyAccepted ? '🔒 Accetta la privacy per continuare' : 'Accedi al mio percorso →'}
                 </button>
               </>
             ) : (
@@ -128,12 +143,6 @@ export default function Login({ onLogin }) {
 
         <p style={{ color: C.muted, textAlign: 'center', marginTop: '20px', fontSize: '12px' }}>
           Non hai il codice? Contatta il tuo fisioterapista
-        </p>
-        <p style={{ textAlign: 'center', marginTop: '10px' }}>
-          <button onClick={() => setShowPrivacy(true)}
-            style={{ background: 'none', border: 'none', color: C.muted, fontSize: '12px', cursor: 'pointer', textDecoration: 'underline' }}>
-            🔒 Informativa Privacy (GDPR)
-          </button>
         </p>
       </div>
     </div>
