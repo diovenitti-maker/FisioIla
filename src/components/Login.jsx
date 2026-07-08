@@ -1,6 +1,7 @@
 import logoUrl from '../assets/logo.png'
 import { useState } from 'react'
 import { ADMIN_PASSWORD } from '../App'
+import Privacy from './Privacy'
 import { db } from '../firebase'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 
@@ -12,6 +13,7 @@ const C = {
 
 export default function Login({ onLogin }) {
   const [tab, setTab] = useState('patient')
+  const [showPrivacy, setShowPrivacy] = useState(false)
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -48,6 +50,8 @@ export default function Login({ onLogin }) {
     borderRadius: '10px', color: C.text, fontSize: '16px', outline: 'none',
     boxSizing: 'border-box', marginBottom: '14px', letterSpacing: '3px',
   }
+
+  if (showPrivacy) return <Privacy onBack={() => setShowPrivacy(false)} />
 
   return (
     <div style={{ minHeight: '100vh', background: C.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
@@ -124,6 +128,12 @@ export default function Login({ onLogin }) {
 
         <p style={{ color: C.muted, textAlign: 'center', marginTop: '20px', fontSize: '12px' }}>
           Non hai il codice? Contatta il tuo fisioterapista
+        </p>
+        <p style={{ textAlign: 'center', marginTop: '10px' }}>
+          <button onClick={() => setShowPrivacy(true)}
+            style={{ background: 'none', border: 'none', color: C.muted, fontSize: '12px', cursor: 'pointer', textDecoration: 'underline' }}>
+            🔒 Informativa Privacy (GDPR)
+          </button>
         </p>
       </div>
     </div>
